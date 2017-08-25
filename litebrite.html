@@ -1,0 +1,181 @@
+<!doctype=HTML>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <title>LiteBrite</title>
+    <style>
+    body {
+        background-color: black;
+        border: 5px solid orange;
+        text-align:center;
+
+
+    }
+    h1 {
+        text-align: center;
+        color: hotpink;
+        border: 5px solid pink;
+        font-size: 75px;
+        background: linear-gradient(to right, pink,red,orange,yellow,green,blue,purple);
+        margin:10px;
+    }
+    .choice {
+        color: white;
+        font-size: 25px;
+
+    }
+
+    td {
+        text-align: center;
+    }
+    button {
+        color:white;
+        background:gray;
+
+    }
+    .circle{
+        border-radius: 100%;
+        background: #2f4f4f;
+        width: 20px;
+        height: 20px;
+    }
+    .erase {
+        background:#2f4f4f;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .red {
+        background:red;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .orange {
+        background:orange;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .yellow {
+        background:yellow;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .green {
+        background:green;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .blue {
+        background:blue;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    .violet {
+        background:violet;
+        border-radius:100%;
+        width:20px;
+        height:20px;
+    }
+    aside {
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+
+    <h1> Lite Brite</h1>
+
+    <form>
+
+        <br>
+
+        <div class="choice">Choose your color:</div>
+        <aside>bfjisobjfio jdfieobfjieob</aside>
+
+        <button type="button" class="red" id="red" value="red"></button>
+        <button type="button" class="orange" id="orange" value="orange"></button>
+        <button type="button" class="yellow" id="yellow" value="yellow"></button>
+        <button type="button" class="green" id="green" value="green"></button>
+        <button type="button" class="blue" id="blue" value="blue"></button>
+        <button type="button" class="violet" id="violet" value="violet"></button>
+        <br>
+        <span class="choice">Click to erase:&nbsp;</span>
+        <button type="button" class="erase" id="erase" value="erase">
+        </button>
+        <span class="choice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refresh board:&nbsp;</span>
+        <button type="button" class="erase" id="refresh"></button>
+
+        <br><br><br>
+
+        <table></table> <!--empty table to be filled-->
+
+    </form>
+
+</body>
+
+<script>
+
+for (var i = 1; i <= 40; i++) {                           //for i rows:
+    $('table').append('<tr id = "' + i + '"></tr>');      //start a new row each time
+    for (var x = 1; x <= 70; x++) {                       //for x columns
+        $('#' + i).append('<td class="circle" id="row' + i + 'column' + x +'"></td>');//add new td tags
+
+    };
+};
+
+
+
+var color = "erase";     //give a starting value to var color
+var red = $('#red');
+var orange = $('#orange');
+var yellow = $('#yellow');
+var green = $('#green');
+var blue = $('#blue');
+var violet = $('#violet');
+var erase = $('#erase');
+var refresh=$('#refresh');
+
+red.click(function() {  //which color have you chosen? Event handler recognizes clicks
+    color = red.val();  //store in var color
+});
+
+orange.click(function() {
+    color = orange.val();
+});
+
+yellow.click(function() {
+    color = yellow.val();
+});
+
+green.click(function() {
+    color = green.val();
+});
+
+blue.click(function() {
+    color = blue.val();
+});
+
+violet.click(function() {
+    color = violet.val();
+});
+erase.click(function() {  //or make color gray if erasing
+    color = erase.val();
+});
+
+$('.circle').hover(function() {  //when you hover over a circle, event handler fires
+    console.log(color);
+        $('#' + this.id).attr("class",color);
+         //changing the class to var color
+refresh.click(function() {  //refresh the page
+    location.reload();
+});
+
+});
+</script>
+</html>
